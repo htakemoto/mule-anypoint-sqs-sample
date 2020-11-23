@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:sqs="http://www.mulesoft.org/schema/mule/sqs" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sqs http://www.mulesoft.org/schema/mule/sqs/current/mule-sqs.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="14e812a5-00f4-41ef-b708-94a68a7383e8" file="properties.yaml" />
+	<sqs:config name="Amazon_SQS_Configuration" doc:name="Amazon SQS Configuration" doc:id="ef4afc07-776e-472c-be13-ef236410c43e" >
+		<sqs:basic-connection accessKey="${aws.accesskey}" secretKey="${aws.secretkey}" region="${aws.region}" />
+	</sqs:config>
+	<flow name="sqs-receive-message-flow" doc:id="a94193c7-8346-4185-bdb2-29df84f9d6ea" >
+		<sqs:receivemessages doc:name="Receive messages" doc:id="44a90d71-1eea-4090-8962-64aebc60a18b" config-ref="Amazon_SQS_Configuration" queueUrl="${sqs.url}"/>
+		<logger level="INFO" doc:name="Logger" doc:id="273b2c79-c52d-49c7-96cb-478f27957b7b" message="#[payload]"/>
+	</flow>
+</mule>

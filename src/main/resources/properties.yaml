@@ -1,0 +1,7 @@
+aws:
+  accesskey: "XXXXXXXXXXXXXXXXXXXX"
+  secretkey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  region: "us-east-1"
+
+sqs:
+  url: "https://sqs.us-east-1.amazonaws.com/000000000000/s3-event-queue"
