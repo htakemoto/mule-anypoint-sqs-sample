@@ -1,0 +1,1 @@
+# Mule Anypoint SQS Sample
